@@ -1,0 +1,31 @@
+name: 'Check AI Crawler Access'
+description: 'Check if your site blocks major AI crawlers (GPTBot, ClaudeBot, Bytespider…) in robots.txt — posts a summary and optionally fails CI'
+author: 'lior-seats'
+branding:
+  icon: 'shield'
+  color: 'red'
+
+inputs:
+  url:
+    description: 'Website URL to check (e.g. https://example.com or example.com)'
+    required: true
+  fail-on-allowed:
+    description: 'Fail the step if any major AI crawlers are not blocked in robots.txt'
+    required: false
+    default: 'false'
+  crawlers:
+    description: 'Comma-separated list of crawler names to check. Defaults to all major AI crawlers.'
+    required: false
+    default: ''
+
+outputs:
+  blocked-count:
+    description: 'Number of AI crawlers that are blocked'
+  allowed-count:
+    description: 'Number of AI crawlers with unrestricted access'
+  summary:
+    description: 'JSON array of per-crawler results'
+
+runs:
+  using: 'node20'
+  main: 'index.js'

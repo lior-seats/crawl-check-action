@@ -1,0 +1,9 @@
+{
+  "name": "crawl-check-action",
+  "version": "1.0.0",
+  "description": "GitHub Action: Check if your site blocks AI crawlers in robots.txt",
+  "private": true,
+  "main": "index.js",
+  "license": "MIT",
+  "author": "lior-seats"
+}
